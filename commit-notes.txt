@@ -1,0 +1,9 @@
+commit-notes() {
+    cd ~/my/note/dir
+    git add .
+    date_var=$(date '+%Y-%m-%d %H:%M')
+    commit=${1:-"updated notes ${date_var}"}
+    git commit -m "$commit" && git push
+    cd -
+    echo "$commit"
+}
