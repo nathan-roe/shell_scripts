@@ -29,6 +29,6 @@ gnat-new-branch() {
 gnat-commit() {
     gnat-pull
     git add .
-    git commit -m "$*"
+    git commit -m $*
     git push
 }
