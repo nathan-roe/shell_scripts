@@ -1,0 +1,4 @@
+[alias]
+	ocd = "!git fetch origin \"$1\" && git pull origin \"$1\""
+	ocd-reset = "!set -x; git switch \"$1\" && git ocd \"$1\" && git reset --hard origin/\"$1\""
+	ocd-new-branch = "!git ocd-reset \"$1\" && git checkout -b test_branch_1"
