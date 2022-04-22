@@ -1,0 +1,13 @@
+start-fe() {
+    cd ~/Documents/tranzynergy/Tranzynergy_v2/
+    code .
+    npm start
+}
+
+start-be() {
+    cd ~/Documents/tranzynergy/
+    source venv/Scripts/activate
+    cd Tzgy_Management_Server
+    code .
+    py manage.py runserver
+}
