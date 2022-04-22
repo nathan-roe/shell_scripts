@@ -1,0 +1,34 @@
+gnat-pull() {
+    if [ $1 ];
+    then
+        git fetch origin $1
+        git pull origin $1
+        return
+    fi
+
+    cur_branch=$(git symbolic-ref --short HEAD)
+    git fetch origin $cur_branch
+    git pull origin $cur_branch
+}
+
+gnat-reset() {
+    cur_branch=$(git symbolic-ref --short HEAD)
+    if [ $1 ];
+    then
+        git switch $1
+    fi
+    gnat-pull
+    git reset --hard origin/$cur_branch
+}
+
+gnat-new-branch() {
+    gnat-reset
+    git checkout -b $1
+}
+
+gnat-commit() {
+    gnat-pull
+    git add .
+    git commit -m "$*"
+    git push
+}
